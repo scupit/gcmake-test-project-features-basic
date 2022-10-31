@@ -1,0 +1,14 @@
+---
+include_prefix: FEATURES_LIB
+description: "feature-dependent library which I'll use to test gcmake dependency inclusion"
+version: 0.0.1
+
+output:
+  features-lib:
+    output_type: CompiledLib
+    entry_file: features-lib.hpp
+    link:
+      private:
+        # Since dependency projects are "lazy loaded" (only loaded when used), the fmt dependency project
+        # itself will only be loaded when this feature is enabled.
+        - ((feature:use-fmt)) fmt::fmt
