@@ -44,6 +44,12 @@ global_defines:
   - ((feature:first-one)) IS_FIRST_ONE_ENABLED
   - ((feature:second-one)) IS_SECOND_ONE_ENABLED
 
+  # Example usage of language feature constraints
+  - ((cpp:17)) USING_AT_LEAST_CPP_17=1
+  - ((cpp:20)) USING_AT_LEAST_CPP_20=1
+  - ((not cpp:17)) USING_AT_LEAST_CPP_17=0
+  - ((not cpp:20)) USING_AT_LEAST_CPP_20=0
+
 predefined_dependencies:
   fmt:
     git_tag: "9.1.0"

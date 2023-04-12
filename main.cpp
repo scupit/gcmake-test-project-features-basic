@@ -4,5 +4,6 @@
 
 int main() {
   printEnabledFeatures();
+  printLanguageFeatures();
   return EXIT_SUCCESS;
 }

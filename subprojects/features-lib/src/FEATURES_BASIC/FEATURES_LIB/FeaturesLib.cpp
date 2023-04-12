@@ -6,6 +6,8 @@
   #include <iostream>
 #endif
 
+#include <map>
+
 std::vector<std::string> enabledFeatures() {
   std::vector<std::string> enabledSubset;
 
@@ -36,6 +38,25 @@ void printEnabledFeatures() {
       fmt::print("\t- {}\n", featureName);
     #else
       std::cout << "\t- " << featureName << '\n';
+    #endif
+  }
+}
+
+static const char* yesNo(const bool b) {
+  return b ? "yes" : "no";
+}
+
+void printLanguageFeatures() {
+  const std::map<int, bool> standardChecks {
+    {17, USING_AT_LEAST_CPP_17},
+    {20, USING_AT_LEAST_CPP_20}
+  };
+
+  for (const auto& [standard, isInUse] : standardChecks) {
+    #if IS_FMT_ENABLED
+      fmt::print("Is at least C++{} in use?: {}\n", standard, yesNo(isInUse));
+    #else
+      std::cout << "Is at least C++" << standard << " in use?: " << yesNo(isInUse) << '\n';
     #endif
   }
 }

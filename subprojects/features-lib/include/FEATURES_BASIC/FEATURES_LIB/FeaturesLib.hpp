@@ -8,5 +8,6 @@
 
 FEATURES_LIB_EXPORT std::vector<std::string> enabledFeatures();
 FEATURES_LIB_EXPORT void printEnabledFeatures();
+FEATURES_LIB_EXPORT void printLanguageFeatures();
 
 #endif
