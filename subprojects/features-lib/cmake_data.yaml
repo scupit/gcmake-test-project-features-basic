@@ -7,6 +7,11 @@ output:
   features-lib:
     output_type: CompiledLib
     entry_file: features-lib.hpp
+    language_features:
+      private:
+        - cpp::digit_separators
+      public:
+        - (( feature:full-constexpr )) cpp::{ constexpr, relaxed_constexpr }
     link:
       private:
         # Since dependency projects are "lazy loaded" (only loaded when used), the fmt dependency project

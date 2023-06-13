@@ -14,6 +14,8 @@ languages:
     min_standard: 17
 
 features:
+  full-constexpr:
+    default: true
   use-fmt:
     # Try setting this to true, calling gcmake-rust, then rebuilding. You'll see that fmt will then be cloned,
     # since it's then being used by the 'show-features' executable being built.
